@@ -1,7 +1,7 @@
 import csv, json
 
-csvFilePath = 'drive_registration.csv'
-jsonFilePath = 'driver2.json'
+csvFilePath = 'puntajeJugadores.csv'
+jsonFilePath = 'archivojson.json'
 
 #Seleen los datos del csv
 data = {}

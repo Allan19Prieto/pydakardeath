@@ -9,10 +9,10 @@ pygame.init ()
 #Pantalla - ventana
 W,H = 626, 417
 Pantalla = pygame.display.set_mode ((W,H ))
-FPS = 60
+FPS = 35
 Reloj = pygame.time.Clock ()
 #Fondo del juego
-Fondo = pygame.image.load ("img/desert fondo.jpg").convert()
+Fondo = pygame.image.load ("img/Desert fond.jpg").convert()
 x=0
 
 #Bucle del juego
@@ -26,6 +26,6 @@ while True:
     if x_relativa < W:
         Pantalla.blit(Fondo,(x_relativa, 0))
 
-    x += 10
+    x -= 10
     pygame.display.update()
     Reloj.tick (FPS)

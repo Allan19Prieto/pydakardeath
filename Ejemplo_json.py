@@ -1,20 +1,5 @@
 import json, csv
 
-'''
-class Employee(object):
-    def __init__(self, name, work):
-        self.name = name
-        self.work = work
-
-def jsonDefault(object):
-    return object.__dict__
-
-abder = Employee('Abder', 'Programadora')
-jsonAbder = json.dumps(abder, default=jsonDefault)
-
-print(jsonAbder)
-'''
-
 # funcion para guardar las puntuaciones de los jugadores
 def guardarPuntaje(sc, hs, user):
     user = user

@@ -9,7 +9,7 @@ pygame.init ()
 #Pantalla - ventana
 W,H = 626, 417
 Pantalla = pygame.display.set_mode ((W,H ))
-FPS = 35
+FPS = 20
 Reloj = pygame.time.Clock ()
 #Fondo del juego
 Fondo = pygame.image.load ("img/Desert fond.jpg").convert()

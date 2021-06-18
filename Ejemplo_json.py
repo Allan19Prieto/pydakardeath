@@ -30,6 +30,8 @@ def guardarPuntaje(sc, hs, user):
 #guardarPuntaje(4,32,"Allan")
 #guardarPuntaje(5,20,"Kendall")
 #guardarPuntaje(6,5,"Pino")
+guardarPuntaje(7,64,"Aaron")
+
 
 # funcion para cargar los puntajes más altos de los jugadores
 def verPuntaje( user):

@@ -1,28 +1,17 @@
 import socket
-import sys
 
-    # Create a UDP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+HOST = '127.0.0.1' # direccion estandar (localhost)
+PORT = 65432       #Puerto que escucha
 
-# Bind the socket to the port
-server_address = ('localhost', 10000)
-print('starting up on {} port {}'.format(*server_address))
-sock.bind(server_address)
-
-while True:
-    print('\nwaiting to receive message')
-    data, address = sock.recvfrom(4096)
-
-    print('received {} bytes from {}'.format(
-        len(data), address))
-    print(data)
-
-    if data:
-        sent = sock.sendto(data, address)
-        print('sent {} bytes back to {}'.format(
-            sent, address))
-
-    if data:
-        sent = sock.sendto(data, address)
-        print('sent {} bytes back to {}'.format(
-            sent, address))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind((HOST, PORT))
+    s.listen()
+    conn, addr = s.accept()
+    with conn:
+        print('Connected by', addr)
+        while True:
+            data = conn.recv(1024)
+            if not data:
+                break
+            conn.sendall(data)
+            #print(data)

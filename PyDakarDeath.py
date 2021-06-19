@@ -184,8 +184,8 @@ class pydeathrace:
         #self.userNameSurface = font.render(self.newUserName, True, white)
         # Create the border around the text box with .Rect
         # left, top, width, height
-        self.userNameBorder = pygame.Rect(((self.ancho - self.userNameSurface.get_width()) / 2) - 10, self.alto * .20,
-                                          self.userNameSurface.get_width() + 10, 50)
+        #self.userNameBorder = pygame.Rect(((self.ancho - self.userNameSurface.get_width()) / 2) - 10, self.alto * .20,
+                                          #self.userNameSurface.get_width() + 10, 50)
 
         self.input_box1 = CajaText(100, 100, 140, 32)
         self.input_box2 = CajaText(100, 100, 140, 32)

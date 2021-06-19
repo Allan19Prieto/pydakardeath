@@ -1,0 +1,97 @@
+#Clase para que la imagen se vea del tamaño de la pantalla
+import pygame
+#import funciones
+import os
+import pygame as pg
+class Image():
+    def __init__(self, file: str, name: str, wh: tuple, pantalla, ventana):
+        self.image = pygame.image.load(os.path.join(file, name))
+        self.image = pygame.transform.scale(self.image, wh)
+        self.rect = self.image.get_rect()
+        self.brightness = 0
+        self.pantalla = pantalla
+        self.ventana =  ventana
+
+    #Función para colocar las imagenes en un lugar específico de la pantalla
+    def place(self, center: bool = False, xy: tuple = (0, 0)):
+        if center:
+            self.rect.center = self.ventana.center
+            self.rect.x += xy[0]
+            self.rect.y += xy[1]
+        else:
+            self.rect.x = xy[0]
+            self.rect.y = xy[1]
+
+        self.pantalla.blit(self.image, self.rect)
+
+class Text():
+    def __init__(self, pantalla, ventana, font: str, size: int, color: tuple, text: str, background: tuple = None):
+        self.pantalla = pantalla
+        self.ventana = ventana
+        self.size = size
+        self.font = pygame.font.Font(os.path.join("fonts", f"{font}.ttf"), self.size)
+        self.color = color
+        self.text = text
+        self.background = background
+        self.image = self.font.render(self.text, False, self.color, self.background)
+        self.rect = self.image.get_rect()
+
+    #Función para colocar el texto en un lugar específico de la pantalla
+    def place(self, center: bool = False, xy: tuple = (0, 0)):
+        if center:
+            self.rect.center = self.ventana.center
+            self.rect.x += xy[0]
+            self.rect.y += xy[1]
+        else:
+            self.rect.x = xy[0]
+            self.rect.y = xy[1]
+
+        self.pantalla.blit(self.image, self.rect)
+
+    def render(self):
+        self.image = self.font.render(self.text, True, self.color, self.background)
+        self.rect = self.image.get_rect()
+
+#Creamos la clase para las cajas de texto
+class CajaText():
+
+    def __init__(self, x, y, w, h, text = ""):
+        self.rect = pg.Rect(x, y, w, h)
+        self.color = COLOR_INACTIVE
+        self.text = text
+        self.txt_surface = FONT.render(text, True, self.color)
+        self.active = False
+class Mouse():
+    def __init__(self, pantalla, event):
+        """ Constructor """
+        self.pantalla = pantalla
+        self.event = event
+        pygame.mouse.set_visible(0)
+        self.imgens_cursor = funciones.cargar_imagem('cursor.png', 1, [(0, y, 40, 43) \
+                                                                      for y in [0, 43]])
+    def imagem_cursor(self):
+        """ Cambia la imagen cuando hago click """
+        cursor = self.imgens_cursor[0]
+
+        if self.event.type == MOUSEBUTTONDOWN:
+            #Se usa la imagen que esta en la posición 1 del arreglo
+            cursor = self.imgens_cursor[1]
+            #Para que suene al hacer click
+            #click1.play()
+        return cursor
+
+    def coordenadas_cursor(self):
+        """ Captura cordenadas del mouse """
+        #print(pygame.mouse.get_pos())
+        return pygame.mouse.get_pos()
+
+    def coordenadas_ponteiro(self):
+        """ Establece las cordenadas del puntero del mouse"""
+
+        x, y = self.coordenadas_cursor()
+        x -= self.imagem_cursor().get_width() - 5
+        return x, y
+
+    def altera_cursor(self):
+        """ Muestra la imagen del mouse en estado normal """
+        self.pantalla.blit(self.imagem_cursor(), self.coordenadas_ponteiro())

@@ -1,3 +1,4 @@
+
 #region Importadas
 import csv
 
@@ -7,7 +8,7 @@ import ctypes
 import os
 import sys
 import pickle
-import Carrera
+#import Carrera
 from datetime import date
 
 import tkinter as tk
@@ -33,7 +34,7 @@ darkred = (139, 0, 0)
 crimson = (220, 20, 60)
 #endregion
 
-font = pygame.font.SysFont("comicsansms", 30)
+#font = pygame.font.SysFont("comicsansms", 30)
 nameActive = False
 regionsActive = False
 slategrey = (112, 128, 144)
@@ -89,19 +90,19 @@ class pydeathrace:
         #endregion
 
         #región botones
-        self.btn_atras = Image("button", "Atras.png", (90, 56), self.pantalla, self.window_rect)
-        self.btn_guardar = Image("button", "Guardar.png", (180, 115), self.pantalla, self.window_rect)
-        self.btn_indicaciones = Image("button", "Indicaciones.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_info = Image("button", "Info.png", (180, 115), self.pantalla, self.window_rect)
-        self.btn_jugar = Image("button", "Jugar.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_jugar_pista = Image("button", "jugar.png",(100, 60), self.pantalla, self.window_rect)
-        self.btn_menu = Image("button", "Menu.png", (290, 225), self.pantalla, self.window_rect)
-        self.btn_nombre = Image("button", "Nombre.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_pausa = Image("button", "Pausa.png", (180, 115), self.pantalla, self.window_rect)
-        self.btn_play = Image("button", "Play.png", (180, 115), self.pantalla, self.window_rect)
-        self.btn_puntaje = Image("button", "Puntaje.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_salir = Image("button", "Salir.png", (180, 115), self.pantalla, self.window_rect)
-        self.btn_terminar = Image("button", "Terminar.png", (180, 115), self.pantalla, self.window_rect)
+        self.btn_atras = Image("botones", "Atras.png", (90, 56), self.pantalla, self.window_rect)
+        self.btn_guardar = Image("botones", "Guardar.png", (180, 115), self.pantalla, self.window_rect)
+        self.btn_indicaciones = Image("menu", "Indicaciones.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_info = Image("botones", "Info.png", (180, 115), self.pantalla, self.window_rect)
+        self.btn_jugar = Image("botones", "Jugar.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_jugar_pista = Image("botones", "jugar.png",(100, 60), self.pantalla, self.window_rect)
+        self.btn_menu = Image("menu", "Menu.png", (290, 225), self.pantalla, self.window_rect)
+        self.btn_nombre = Image("menu", "Nombre1.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_pausa = Image("botones", "Pausa.png", (180, 115), self.pantalla, self.window_rect)
+        self.btn_play = Image("botones", "Play.png", (180, 115), self.pantalla, self.window_rect)
+        self.btn_puntaje = Image("botones", "Puntaje.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_salir = Image("botones", "Salir.png", (180, 115), self.pantalla, self.window_rect)
+        self.btn_terminar = Image("botones", "Terminar.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_menu_indicaciones = Image("img", "Indicacion1.png", (580, 515), self.pantalla, self.window_rect)
 
 
@@ -109,25 +110,25 @@ class pydeathrace:
         self.btn_cuadroinfo = Image("img", "CuadroInfo.png", (580, 515), self.pantalla, self.window_rect)
 
         #Botones de flechas
-        self.btn_flecha_derecha = Image("button", "Seleccion.png", (50, 30), self.pantalla, self.window_rect)
-        self.btn_flecha_izquierda = Image("button", "Atras.png", (50, 30), self.pantalla, self.window_rect)
-        self.btn_flecha_derecha2 = Image("button", "Seleccion.png", (50, 30), self.pantalla, self.window_rect)
-        self.btn_flecha_izquierda2 = Image("button", "Atras.png", (50, 30), self.pantalla, self.window_rect)
-        self.btn_flecha_derecha3 = Image("button", "Seleccion.png", (50, 30), self.pantalla, self.window_rect)
-        self.btn_flecha_izquierda3 = Image("button", "Atras.png", (50, 30), self.pantalla, self.window_rect)
+        self.btn_flecha_derecha = Image("botones", "Seleccion.png", (50, 30), self.pantalla, self.window_rect)
+        self.btn_flecha_izquierda = Image("botones", "Atras.png", (50, 30), self.pantalla, self.window_rect)
+        self.btn_flecha_derecha2 = Image("botones", "Seleccion.png", (50, 30), self.pantalla, self.window_rect)
+        self.btn_flecha_izquierda2 = Image("botones", "Atras.png", (50, 30), self.pantalla, self.window_rect)
+        self.btn_flecha_derecha3 = Image("botones", "Seleccion.png", (50, 30), self.pantalla, self.window_rect)
+        self.btn_flecha_izquierda3 = Image("botones", "Atras.png", (50, 30), self.pantalla, self.window_rect)
 
         self.btn_multigugador = Image("img", "upgrade_hp.png", (70, 70), self.pantalla, self.window_rect)
 
         #Títulos
-        self.btn_jugador1 = Image("img", "Jugador1.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_jugador2 = Image("img", "Jugador2.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_icono_inicio = Image("img", "Icono.png", (300, 155), self.pantalla, self.window_rect)
-        self.btn_pista_titulo = Image("img", "Pista.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_jugador1 = Image("menu", "Jugador1.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_jugador2 = Image("menu", "Jugador2.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_icono_inicio = Image("menu", "Icono.png", (300, 155), self.pantalla, self.window_rect)
+        self.btn_pista_titulo = Image("menu", "Pista.png", (230, 115), self.pantalla, self.window_rect)
         #endregion
 
         #RegiÓn Listas
         # Fondo pantalla
-        self.f_inicio = Image("img", "FondoPrincipal.png", (self.ancho, self.alto), self.pantalla, self.window_rect)
+        self.f_inicio = Image("menu", "FondoPrincipal.jpg", (self.ancho, self.alto), self.pantalla, self.window_rect)
 
         # Carros en una lista
         self.imagenes_carros = []
@@ -142,10 +143,10 @@ class pydeathrace:
         self.contador_carros2 = 0
 
         #Pistas en una lista
-        self.imagenes_pistas = []
-        for i in range(1, 4):
-            self.imagenes_pistas.append(Image("img", f"pista{i}.jpg", (200, 150), self.pantalla, self.window_rect))
-        self.contador_pistas = 0
+        #self.imagenes_pistas = []
+        #for i in range(1, 4):
+        #    self.imagenes_pistas.append(Image("menu", f"Pista{i}.jpg", (200, 150), self.pantalla, self.window_rect))
+        #self.contador_pistas = 0
         #endregion
 
         #Region de sonido
@@ -180,7 +181,7 @@ class pydeathrace:
         #Creamos una caja de texto con TKINTER
         #self.entry = ttk.Entry(self.pantalla)
         # Create the text box
-        self.userNameSurface = font.render(self.newUserName, True, white)
+        #self.userNameSurface = font.render(self.newUserName, True, white)
         # Create the border around the text box with .Rect
         # left, top, width, height
         self.userNameBorder = pygame.Rect(((self.ancho - self.userNameSurface.get_width()) / 2) - 10, self.alto * .20,
@@ -242,8 +243,8 @@ class pydeathrace:
         pygame.init()
 
         #Nombre e ícono
-        pygame.display.set_caption("PyDeathRace 2.0")
-        pygame.display.set_icon(pygame.image.load(os.path.join("img/icon.png")))
+        pygame.display.set_caption("PyDakarDeath")
+        pygame.display.set_icon(pygame.image.load(os.path.join("menu/Icono.png")))
 
     # Para manejar las entradas
     def _handle_input(self):
@@ -505,7 +506,7 @@ class pydeathrace:
 
             if self.tiempo_espera == 170:
                 #Pasamos a jugar en la pista
-                Carrera.main(self.pantalla, self.Pista_seleccionada, self.Jugadores_seleccionados, self.Carro1_seleccionado, self.Carro2_seleccionado, self.nombre_usuario_1, self.nombre_usuario_2)
+                #Carrera.main(self.pantalla, self.Pista_seleccionada, self.Jugadores_seleccionados, self.Carro1_seleccionado, self.Carro2_seleccionado, self.nombre_usuario_1, self.nombre_usuario_2)
                 self.menu = "menu"
 
         # Colocamos en mouse en la pantalla

@@ -16,7 +16,7 @@ Rojo = (255,0,0)
 pos_x = 300
 pos_y = 260
 #Fondo del juego
-Fondo = pygame.image.load ("img/Desert fond.jpg").convert()
+#Fondo = pygame.image.load ("img/Desert fond.jpg").convert()
 x=0
 
 #Bucle del juego
@@ -38,22 +38,22 @@ while True:
     speed = 30
 
     # Loops through all obstacles
-        for obstacle in obstacles:
-            bgX -= 10
-            bgX2 -= 10
-            if bgX < bg.draw.rect.get_width() * -1:
-                bgX = bg.draw.rect.get_width()
-            if bgX2 < bg.draw.rect.get_width() * -1:
-                bgX2 = bg.draw.rect.get_width()
-            if event.type == USEREVENT + 2:
-                r = random.randrange(0, 2)
-                if r == 0:
-                    obstacles.append(saw(810, 310, 64, 64))
-                elif r == 1:
-                    obstacles.append(spike(810, 0, 48, 310))
+#        for obstacle in obstacles:
+           # bgX -= 10
+           # bgX2 -= 10
+           # if bgX < bg.draw.rect.get_width() * -1:
+           #     bgX = bg.draw.rect.get_width()
+           # if bgX2 < bg.draw.rect.get_width() * -1:
+           #     bgX2 = bg.draw.rect.get_width()
+           # if event.type == USEREVENT + 2:
+           #     r = random.randrange(0, 2)
+           #     if r == 0:
+           #         obstacles.append(saw(810, 310, 64, 64))
+           #     elif r == 1:
+           #         obstacles.append(spike(810, 0, 48, 310))
             # obstacle.draw(win)
     pygame.draw.rect(Pantalla, Rojo, (pos_x, pos_y, 40, 40))
-    pygame.time.set_timer(USEREVENT + 2, random.randrange(2000, 3500))
+    #pygame.time.set_timer(USEREVENT + 2, random.randrange(2000, 3500))
 # Lógica
 
 

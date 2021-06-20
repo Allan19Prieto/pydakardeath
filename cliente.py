@@ -66,6 +66,7 @@ def main():
 
     while run:
         clock.tick(60)
+
         p2Pos = read_pos(n.send(make_pos((p.x, p.y))))
         p2.x = p2Pos[0]
         p2.y = p2Pos[1]

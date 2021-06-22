@@ -122,7 +122,7 @@ class pydeathrace:
         #Títulos
         self.btn_jugador1 = Image("menu", "Jugador1.png", (230, 115), self.pantalla, self.window_rect)
         self.btn_jugador2 = Image("menu", "Jugador2.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_icono_inicio = Image("menu", "Icono.png", (300, 155), self.pantalla, self.window_rect)
+        self.btn_icono_inicio = Image("menu", "Titulo.png", (300, 155), self.pantalla, self.window_rect)
         self.btn_pista_titulo = Image("menu", "Pista.png", (230, 115), self.pantalla, self.window_rect)
         #endregion
 
@@ -374,7 +374,7 @@ class pydeathrace:
                         self.s_click3.play()
                         self.menu = "menu"
                     elif self.menu == "puntaje" or self.menu == "seleccionar":
-                        #self.nombre_usuario = self.input_box1.text
+                        self.nombre_usuario = self.input_box1.text
                         self.s_click3.play()
                         self.menu = "play"
                     elif self.menu == "nombre":

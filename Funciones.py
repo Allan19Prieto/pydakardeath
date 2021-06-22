@@ -30,7 +30,7 @@ def muestra_texto(pantalla, fuente, texto, color, dimensiones, x, y, consolas, p
 
 def cargar_imagem(arquivo, transparencia=None, imagens=None):
 
-    arquivo = os.path.join('C:/Users/joset/PycharmProjects/pydakardeath/botones', arquivo)
+    arquivo = os.path.join('botones', arquivo)
     image = pygame.image.load(arquivo)
 
     if imagens is None:

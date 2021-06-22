@@ -3,20 +3,22 @@ import os
 import sys
 import random
 from pygame.locals import *
+from Clases import *
 
 #Iniciación del Pygame
 pygame.init ()
 
 #Pantalla - ventana
-W,H = 626, 417
-Pantalla = pygame.display.set_mode ((W,H ))
+W,H = 1361, 716
+win = pygame.display.set_mode ((W,H ))
+window_rect = win.get_rect()
 FPS = 20
 Reloj = pygame.time.Clock ()
 Rojo = (255,0,0)
 pos_x = 300
 pos_y = 260
 #Fondo del juego
-#Fondo = pygame.image.load ("img/Desert fond.jpg").convert()
+Fondo = Image("img", "Desert fond.jpg", (W, H), win, window_rect)
 x=0
 
 #Bucle del juego
@@ -26,11 +28,11 @@ while True:
             pygame.quit ()
             sys.exit ()
     obstacles = []
-    def redrawWindow():
-        win.blit(bg, (bgX, 0))
-        win.blit(bg, (bgX2, 0))
-        runner.draw(win)
-        pygame.display.update()
+    #def redrawWindow():
+        #win.blit(bg, (bgX, 0))
+        #win.blit(bg, (bgX2, 0))
+        #runner.draw(win)
+        #pygame.display.update()
 
 
     pygame.time.set_timer(USEREVENT + 1, 500)
@@ -52,24 +54,19 @@ while True:
            #     elif r == 1:
            #         obstacles.append(spike(810, 0, 48, 310))
             # obstacle.draw(win)
-    pygame.draw.rect(Pantalla, Rojo, (pos_x, pos_y, 40, 40))
+    pygame.draw.rect(win, Rojo, (pos_x, pos_y, 40, 40))
     #pygame.time.set_timer(USEREVENT + 2, random.randrange(2000, 3500))
 # Lógica
-
-
-
     pos_x += 5
     if pos_x > W:
         pos_x = 0
 
-
 #Dibujos
-
-    x_relativa = x % Fondo.get_rect().width
-    Pantalla.blit(Fondo, (x_relativa - Fondo.get_rect().width, 0))
+    x_relativa = x % Fondo.rect.width
+    win.blit(Fondo.image, (x_relativa - Fondo.rect.width, 0))
     if x_relativa < W:
-        Pantalla.blit(Fondo,(x_relativa, 0))
-        pygame.draw.rect(Pantalla, Rojo, (pos_x, pos_y, 40, 40))
+        win.blit(Fondo.image,(x_relativa, 0))
+        pygame.draw.rect(win, Rojo, (pos_x, pos_y, 40, 40))
 
 
 #Constantes

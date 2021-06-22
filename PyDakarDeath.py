@@ -34,7 +34,7 @@ darkred = (139, 0, 0)
 crimson = (220, 20, 60)
 #endregion
 
-#font = pygame.font.SysFont("comicsansms", 30)
+font = pygame.font.SysFont("comicsansms", 30)
 nameActive = False
 regionsActive = False
 slategrey = (112, 128, 144)
@@ -95,9 +95,9 @@ class pydeathrace:
         self.btn_indicaciones = Image("menu", "Indicaciones.png", (230, 115), self.pantalla, self.window_rect)
         self.btn_info = Image("botones", "Info.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_jugar = Image("botones", "Jugar.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_jugar_pista = Image("botones", "jugar.png",(100, 60), self.pantalla, self.window_rect)
+        self.btn_jugar_pista = Image("botones", "Jugar.png",(100, 60), self.pantalla, self.window_rect)
         self.btn_menu = Image("menu", "Menu.png", (290, 225), self.pantalla, self.window_rect)
-        self.btn_nombre = Image("menu", "Nombre1.png", (230, 115), self.pantalla, self.window_rect)
+        self.btn_nombre = Image("botones", "Nombre.png", (230, 115), self.pantalla, self.window_rect)
         self.btn_pausa = Image("botones", "Pausa.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_play = Image("botones", "Play.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_puntaje = Image("botones", "Puntaje.png", (230, 115), self.pantalla, self.window_rect)
@@ -145,8 +145,8 @@ class pydeathrace:
         #Pistas en una lista
         #self.imagenes_pistas = []
         #for i in range(1, 4):
-        #    self.imagenes_pistas.append(Image("menu", f"Pista{i}.jpg", (200, 150), self.pantalla, self.window_rect))
-        #self.contador_pistas = 0
+            #self.imagenes_pistas.append(Image("menu", f"pista{i}.jpg", (200, 150), self.pantalla, self.window_rect))
+        #elf.contador_pistas = 0
         #endregion
 
         #Region de sonido
@@ -181,11 +181,11 @@ class pydeathrace:
         #Creamos una caja de texto con TKINTER
         #self.entry = ttk.Entry(self.pantalla)
         # Create the text box
-        #self.userNameSurface = font.render(self.newUserName, True, white)
+        self.userNameSurface = font.render(self.newUserName, True, white)
         # Create the border around the text box with .Rect
         # left, top, width, height
-        #self.userNameBorder = pygame.Rect(((self.ancho - self.userNameSurface.get_width()) / 2) - 10, self.alto * .20,
-                                          #self.userNameSurface.get_width() + 10, 50)
+        self.userNameBorder = pygame.Rect(((self.ancho - self.userNameSurface.get_width()) / 2) - 10, self.alto * .20,
+                                          self.userNameSurface.get_width() + 10, 50)
 
         self.input_box1 = CajaText(100, 100, 140, 32)
         self.input_box2 = CajaText(100, 100, 140, 32)
@@ -244,7 +244,7 @@ class pydeathrace:
 
         #Nombre e ícono
         pygame.display.set_caption("PyDakarDeath")
-        pygame.display.set_icon(pygame.image.load(os.path.join("menu/Icono.png")))
+        pygame.display.set_icon(pygame.image.load(os.path.join("menu/icono.png")))
 
     # Para manejar las entradas
     def _handle_input(self):
@@ -403,41 +403,41 @@ class pydeathrace:
         if self.menu == "menu":
             self.f_inicio.place()
             self.pantalla.blit(self.todayText, (1130, 8))
-            self.btn_icono_inicio.place(True, (0, -280))
-            self.btn_play.place(True, (0, -125))
-            self.btn_info.place(True, (0, 55))
-            self.btn_indicaciones.place(True, (0, 240))
+            #self.btn_icono_inicio.place(True, (500, -280))
+            self.btn_play.place(True, (0, -50))
+            self.btn_info.place(True, (270, -50))
+            self.btn_indicaciones.place(True, (-300, -50))
 
         #Vista de la pantalla de menú
         elif self.menu == "play":
             self.f_inicio.place()
             self.pantalla.blit(self.todayText, (1130, 8))
-            self.btn_menu.place(True, (0, -240))
-            self.btn_puntaje.place(True, (275, 0))
-            self.btn_jugar.place(True, (-275, 0))
-            self.btn_salir.place(True, (0, 200))
+            #self.btn_menu.place(True, (0, -240))
+            self.btn_puntaje.place(True, (275, -50))
+            self.btn_jugar.place(True, (-275, -50))
+            #self.btn_salir.place(True, (550, 300))
             self.btn_atras.place(True, (-590, -320))
 
         #Vista de la pantala de información
         elif self.menu == "info":
             self.f_inicio.place()
             self.info_tex.place(True, (0, -390))
-            self.btn_iformacion.place(True, (-5,-300))
+            #self.btn_iformacion.place(True, (-5,-300))
             self.btn_cuadroinfo.place(True, (25 , 0))
             self.btn_atras.place(True, (-590, -320))
 
         #Vista de la pantalla de indicaciones
         elif self.menu == "indica":
             self.f_inicio.place()
-            self.btn_indicaciones.place(True, (0, -290))
+            #self.btn_indicaciones.place(True, (0, -290))
             self.btn_menu_indicaciones.place(True, (25, 0))
             self.btn_atras.place(True, (-590, -320))
 
         #Vista de la pantalla nombre
         elif self.menu == "nombre":
             self.f_inicio.place()
-            self.btn_nombre1 = Image("button", "Nombre1.png", (230, 115), self.pantalla, self.window_rect)
-            self.btn_nombre2 = Image("button", "Nombre2.png", (230, 115), self.pantalla, self.window_rect)
+            self.btn_nombre1 = Image("menu", "Nombre1.png", (230, 115), self.pantalla, self.window_rect)
+            self.btn_nombre2 = Image("menu", "Nombre2.png", (230, 115), self.pantalla, self.window_rect)
             self.input_box1.draw(self.pantalla, self.window_rect, True, (-400, 20))
             self.btn_nombre.place(True, (-0, -290))
             self.btn_nombre1.place(True, (-400, -130))
@@ -450,7 +450,7 @@ class pydeathrace:
         #Vista de la pantalla puntaje
         elif self.menu == "puntaje":
             self.f_inicio.place()
-            self.btn_puntaje.place(True, (0, -290))
+            #self.btn_puntaje.place(True, (0, -290))
             self.btn_atras.place(True, (-590, -320))
 
         #Ventana para seleccionar las caracteristicas de la lista
@@ -459,31 +459,31 @@ class pydeathrace:
             self.f_inicio.place()
 
             #Para ver los carros que se quieren jugar
-            self.btn_flecha_derecha.place(xy=(390, 240))
-            self.btn_flecha_izquierda.place(xy=(155, 240))
-            self.imagenes_carros[self.contador_carros].place(xy=(245, 225))
+            self.btn_flecha_derecha.place(xy=(340, 240))
+            self.btn_flecha_izquierda.place(xy=(100, 240))
+            self.imagenes_carros[self.contador_carros].place(xy=(190, 225))
 
             self.usuario_nombre = Text(self.pantalla, self.window_rect, "game_font", 30, crimson,
                                        " Usuario: " + self.nombre_usuario_1 + " / ")
             self.usuario_nombre.place(xy=(570, 225))
 
-            self.btn_jugador1.place(xy=(200, 85))
+            self.btn_jugador1.place(xy=(140, 85))
             self.btn_nombre.place(xy=(570, 85))
             self.btn_pista_titulo.place(xy=(970, 85))
 
             #Para ver las pistas en la paantalla
-            self.btn_flecha_derecha2.place(xy=(1210, 350))
-            self.btn_flecha_izquierda2.place(xy=(900, 350))
-            self.imagenes_pistas[self.contador_pistas].place(xy=(980, 305))
+            #self.btn_flecha_derecha2.place(xy=(1210, 350))
+            #self.btn_flecha_izquierda2.place(xy=(900, 350))
+            #self.imagenes_pistas[self.contador_pistas].place(xy=(980, 305))
 
             self.btn_multigugador.place(True, (-450, 0))
 
             if self.jugadores == "dos":
                 # Para ver los carros que se quieren jugar
-                self.btn_jugador2.place(xy=(200, 450))
-                self.btn_flecha_derecha3.place(xy=(390, 610))
-                self.btn_flecha_izquierda3.place(xy=(155, 610))
-                self.imagenes_carros2[self.contador_carros2].place(xy=(245, 595))
+                self.btn_jugador2.place(xy=(140, 450))
+                self.btn_flecha_derecha3.place(xy=(340, 610))
+                self.btn_flecha_izquierda3.place(xy=(100, 610))
+                self.imagenes_carros2[self.contador_carros2].place(xy=(190, 595))
 
                 self.usuario_nombre2 = Text(self.pantalla, self.window_rect, "game_font", 30, crimson,
                                            " Usuario: " + str(self.nombre_usuario_2))

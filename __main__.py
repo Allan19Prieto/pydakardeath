@@ -1,5 +1,5 @@
 from PyDakarDeath import pydeathrace
-#from Prueba import *
+#from Carrera import main
 
 if __name__ == "__main__":
     pydeathrace = pydeathrace()

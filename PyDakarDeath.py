@@ -244,7 +244,7 @@ class pydeathrace:
 
         #Nombre e ícono
         pygame.display.set_caption("PyDakarDeath")
-        pygame.display.set_icon(pygame.image.load(os.path.join("menu/icono.png")))
+        pygame.display.set_icon(pygame.image.load(os.path.join("img/Icono2.jpg")))
 
     # Para manejar las entradas
     def _handle_input(self):

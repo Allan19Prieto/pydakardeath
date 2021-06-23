@@ -128,7 +128,7 @@ class pydeathrace:
 
         #RegiÓn Listas
         # Fondo pantalla
-        self.f_inicio = Image("menu", "FondoPrincipal.jpg", (self.ancho, self.alto), self.pantalla, self.window_rect)
+        self.f_inicio = Image("menu", "FondoPrincipal1.jpg", (self.ancho, self.alto), self.pantalla, self.window_rect)
 
         # Carros en una lista
         self.imagenes_carros = []
@@ -403,7 +403,7 @@ class pydeathrace:
         if self.menu == "menu":
             self.f_inicio.place()
             self.pantalla.blit(self.todayText, (1130, 8))
-            #self.btn_icono_inicio.place(True, (500, -280))
+            self.btn_icono_inicio.place(True, (0, -280))
             self.btn_play.place(True, (0, -50))
             self.btn_info.place(True, (270, -50))
             self.btn_indicaciones.place(True, (-300, -50))
@@ -412,7 +412,7 @@ class pydeathrace:
         elif self.menu == "play":
             self.f_inicio.place()
             self.pantalla.blit(self.todayText, (1130, 8))
-            #self.btn_menu.place(True, (0, -240))
+            self.btn_menu.place(True, (0, -240))
             self.btn_puntaje.place(True, (275, -50))
             self.btn_jugar.place(True, (-275, -50))
             #self.btn_salir.place(True, (550, 300))
@@ -422,14 +422,14 @@ class pydeathrace:
         elif self.menu == "info":
             self.f_inicio.place()
             self.info_tex.place(True, (0, -390))
-            #self.btn_iformacion.place(True, (-5,-300))
+            self.btn_iformacion.place(True, (-5,-300))
             self.btn_cuadroinfo.place(True, (25 , 0))
             self.btn_atras.place(True, (-590, -320))
 
         #Vista de la pantalla de indicaciones
         elif self.menu == "indica":
             self.f_inicio.place()
-            #self.btn_indicaciones.place(True, (0, -290))
+            self.btn_indicaciones.place(True, (0, -290))
             self.btn_menu_indicaciones.place(True, (25, 0))
             self.btn_atras.place(True, (-590, -320))
 
@@ -450,7 +450,7 @@ class pydeathrace:
         #Vista de la pantalla puntaje
         elif self.menu == "puntaje":
             self.f_inicio.place()
-            #self.btn_puntaje.place(True, (0, -290))
+            self.btn_puntaje.place(True, (0, -290))
             self.btn_atras.place(True, (-590, -320))
 
         #Ventana para seleccionar las caracteristicas de la lista

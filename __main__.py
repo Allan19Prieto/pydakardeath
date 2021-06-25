@@ -1,6 +1,6 @@
-from PyDakarDeath import pydeathrace
+from PyDakarDeath import pydakardeath
 #from Carrera import main
 
 if __name__ == "__main__":
-     pydeathrace = pydeathrace()
-     pydeathrace.main_loop()
+     pydakardeath = pydakardeath()
+     pydakardeath.main_loop()

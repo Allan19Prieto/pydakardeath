@@ -39,7 +39,7 @@ nameActive = False
 regionsActive = False
 slategrey = (112, 128, 144)
 
-class pydeathrace:
+class pydakardeath:
     def __init__(self):
         self._init_pygame()
 
@@ -95,7 +95,7 @@ class pydeathrace:
         self.btn_indicaciones = Image("menu", "Indicaciones.png", (230, 115), self.pantalla, self.window_rect)
         self.btn_info = Image("botones", "Info.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_jugar = Image("botones", "Jugar.png", (230, 115), self.pantalla, self.window_rect)
-        self.btn_jugar_pista = Image("botones", "Jugar.png",(100, 60), self.pantalla, self.window_rect)
+        self.btn_jugar_pista = Image("botones", "Jugar.png",(230, 115), self.pantalla, self.window_rect)
         self.btn_menu = Image("menu", "Menu.png", (290, 225), self.pantalla, self.window_rect)
         self.btn_nombre = Image("botones", "Nombre.png", (230, 115), self.pantalla, self.window_rect)
         self.btn_pausa = Image("botones", "Pausa.png", (180, 115), self.pantalla, self.window_rect)
@@ -103,7 +103,7 @@ class pydeathrace:
         self.btn_puntaje = Image("botones", "Puntaje.png", (230, 115), self.pantalla, self.window_rect)
         self.btn_salir = Image("botones", "Salir.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_terminar = Image("botones", "Terminar.png", (180, 115), self.pantalla, self.window_rect)
-        self.btn_menu_indicaciones = Image("img", "Indicacion1.png", (580, 515), self.pantalla, self.window_rect)
+        self.btn_menu_indicaciones = Image("img", "CuadroIndi.png", (580, 515), self.pantalla, self.window_rect)
 
 
         self.btn_iformacion = Image("img", "Informacion.png", (180, 115), self.pantalla, self.window_rect)
@@ -469,7 +469,7 @@ class pydeathrace:
 
             self.btn_jugador1.place(xy=(140, 85))
             self.btn_nombre.place(xy=(570, 85))
-            self.btn_pista_titulo.place(xy=(970, 85))
+            #self.btn_pista_titulo.place(xy=(970, 85))
 
             #Para ver las pistas en la paantalla
             #self.btn_flecha_derecha2.place(xy=(1210, 350))
@@ -486,11 +486,11 @@ class pydeathrace:
                 self.imagenes_carros2[self.contador_carros2].place(xy=(190, 595))
 
                 self.usuario_nombre2 = Text(self.pantalla, self.window_rect, "game_font", 30, crimson,
-                                           " Usuario: " + str(self.nombre_usuario_2))
-                self.usuario_nombre2.place(xy=(570, 595))
+                                           " Usuario 2: " + str(self.nombre_usuario_2))
+                self.usuario_nombre2.place(xy=(570, 300))
 
             self.btn_atras.place(True, (-590, -320))
-            self.btn_jugar_pista.place(True, (590, 320))
+            self.btn_jugar_pista.place(True, (400, -213))
 
         #Patntallas Cargando el juego
         elif self.menu == "CargandoJuego":

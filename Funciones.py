@@ -8,7 +8,7 @@ from pygame.locals import *
 #Crea una ruta a una imagen, que esté en assets/sprites
 def load_sprite(name, with_alpha=True):
     #arquivo = os.path.join('img', arquivo)
-    path = f"C:/Users/joset/PycharmProjects/pydakardeath/img{name}"
+    path = "img"
     #Carga la imagen usando load
     loaded_sprite = load(path)
 

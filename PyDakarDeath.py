@@ -1,6 +1,7 @@
 
 #region Importadas
 import csv
+import json
 
 from Clases import *
 import pygame
@@ -11,10 +12,9 @@ import pickle
 #import Carrera
 from datetime import date
 import cliente
+import Ejemplo_json as js
 
-import tkinter as tk
-from tkinter import ttk
-#endregion
+import fonts
 
 #region Colores
 red = (255, 0, 0)
@@ -36,6 +36,14 @@ crimson = (220, 20, 60)
 #endregion
 
 font = pygame.font.SysFont("comicsansms", 30)
+font2 = pygame.font.SysFont("comicsans", 60)
+
+pj1 = ""
+pj1 = ""
+pj1 = ""
+pj1 = ""
+pj1 = ""
+
 nameActive = False
 regionsActive = False
 slategrey = (112, 128, 144)
@@ -144,12 +152,7 @@ class pydakardeath:
             self.imagenes_carros2.append(Image("img", f"car{i}.png", (125, 65), self.pantalla, self.window_rect))
         self.contador_carros2 = 0
 
-        #Pistas en una lista
-        #self.imagenes_pistas = []
-        #for i in range(1, 4):
-            #self.imagenes_pistas.append(Image("menu", f"pista{i}.jpg", (200, 150), self.pantalla, self.window_rect))
-        #elf.contador_pistas = 0
-        #endregion
+
 
         #Region de sonido
         #self.s_battlefield = pygame.mixer.Sound(os.path.join("sounds", "Battlefield.mp3"))
@@ -391,7 +394,6 @@ class pydakardeath:
                         self.SaveScores(self.nombre_usuario_1, self.Carro1_seleccionado, self.Pista_seleccionada)
 
 
-
     # Para amanejar la lógica del juego
     def _process_game_logic(self):
     #Se llama el Mouse
@@ -451,12 +453,21 @@ class pydakardeath:
 
         #Vista de la pantalla puntaje
         elif self.menu == "puntaje":
+
+            with open("archivojson.json") as lider:
+                high = json.load(lider)
+                contador = 0
+                for h in high:
+                    if contador < 5:
+                        print(h["Jugador"] + ": Puntuacion ---> " + h["Puntuacion"])
+
+                    contador = contador + 1
+
             self.f_inicio.place()
             self.btn_puntaje.place(True, (0, -290))
             self.btn_atras.place(True, (-590, -320))
             self.btn_puntos.place(True, (25, 20))
 
-        #Ventana para seleccionar las caracteristicas de la lista
         elif self.menu == "seleccionar":
 
             self.f_inicio.place()
@@ -472,12 +483,7 @@ class pydakardeath:
 
             self.btn_jugador1.place(xy=(140, 85))
             self.btn_nombre.place(xy=(570, 85))
-            #self.btn_pista_titulo.place(xy=(970, 85))
 
-            #Para ver las pistas en la paantalla
-            #self.btn_flecha_derecha2.place(xy=(1210, 350))
-            #self.btn_flecha_izquierda2.place(xy=(900, 350))
-            #self.imagenes_pistas[self.contador_pistas].place(xy=(980, 305))
 
             self.btn_multigugador.place(True, (-450, 0))
 
@@ -518,8 +524,6 @@ class pydakardeath:
         print(self.mouse_pos[0], self.mouse_pos[1])
         #print("Boton: ", self.btn_play.rect)
 
-        #print(self.menu)
-        #print(str(self.input_box1))
         print("Carro: ", self.Carro1_seleccionado)
         print("Carro2: ", self.Carro2_seleccionado)
         print("Pista: ", self.Pista_seleccionada)

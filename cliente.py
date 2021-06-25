@@ -4,10 +4,11 @@ from player import Player
 import pickle
 from Clases import *
 import time
+import Ejemplo_json as js
 
 pygame.font.init()
-width = 700
-height = 700
+width = 1361
+height = 716
 FPS = 60
 Reloj = pygame.time.Clock ()
 win = pygame.display.set_mode((width, height))
@@ -115,7 +116,7 @@ def redrawWindow(win, game, p, pl, pl2):
 
     pygame.display.update()
 
-btns = [Button("Terminar", 590, 350, (darkred))]
+btns = [Button("Terminar", 1300, 350, (darkred))]
 #Funcion principal del juego
 def main(no, num):
     global x
@@ -128,6 +129,8 @@ def main(no, num):
     global movimiento2
     global counter
     global text2
+    global puntos
+    global puntos
 
     #Jugador que ingrese
     players = [Player(win, 0, 460, f'img/car{num}.png'), Player(win, 0, 0, f'img/car{num}.png')]
@@ -155,6 +158,7 @@ def main(no, num):
 
             if counter == 0 and player == 1 or counter == 0 and player == 0:
                 pygame.time.delay(500)
+                js.guardarPuntaje(player, puntos, nombre)
                 try:
                     game = n.send("reset")
                 except:
@@ -205,12 +209,14 @@ def main(no, num):
 
             #Ejemplo puntos
             if player == 1:
+                puntos += 5
                 movimiento2 = game.get_player_move(player)
                 player1 = players[0]
                 player2 = players[1]
                 player1.move(pressed_key, player)
                 n.send(str(player1.getpos()))
             else:
+                puntos += 15
                 movimiento2 = game.get_player_move(player)
                 player1 = players[0]
                 player2 = players[1]

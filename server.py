@@ -51,7 +51,6 @@ def updateWorld(message):
         for r in remove:
             outgoing.remove(r)
 
-
 class MainServer(asyncore.dispatcher):
     def __init__(self, port):
         asyncore.dispatcher.__init__(self)

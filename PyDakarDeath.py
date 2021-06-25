@@ -10,6 +10,7 @@ import sys
 import pickle
 #import Carrera
 from datetime import date
+import cliente
 
 import tkinter as tk
 from tkinter import ttk
@@ -497,7 +498,7 @@ class pydakardeath:
         #Patntallas Cargando el juego
         elif self.menu == "CargandoJuego":
 
-            self.pantalla.fill(darkred)
+            self.pantalla.fill(aqua)
             if self.tiempo_espera < 90:
                 self.espera1_text.place(True)
                 self.tiempo_espera += 1
@@ -508,7 +509,8 @@ class pydakardeath:
 
             if self.tiempo_espera == 170:
                 #Pasamos a jugar en la pista
-                #Carrera.main(self.pantalla, self.Pista_seleccionada, self.Jugadores_seleccionados, self.Carro1_seleccionado, self.Carro2_seleccionado, self.nombre_usuario_1, self.nombre_usuario_2)
+                #Carrera.main(self.pares_seleccionados, self.Carro1_seleccionado, self.Carro2_seleccionado, self.nombre_usuario_1, self.nombre_usuario_2)
+                cliente.main(self.nombre_usuario_1, self.Carro1_seleccionado)
                 self.menu = "menu"
 
         # Colocamos en mouse en la pantalla

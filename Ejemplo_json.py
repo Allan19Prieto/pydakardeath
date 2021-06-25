@@ -99,3 +99,4 @@ with open("archivojson.json") as lider:
             print(h["Jugador"] + ": Puntuacion ---> " + h["Puntuacion"])
         contador = contador + 1
 
+

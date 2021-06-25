@@ -16,7 +16,7 @@ FPS = 20
 Reloj = pygame.time.Clock ()
 Rojo = (255,0,0)
 pos_x = 300
-pos_y = 260
+pos_y = 500
 #Fondo del juego
 Fondo = Image("img", "Desert fond.jpg", (W, H), win, window_rect)
 x=0
@@ -63,14 +63,14 @@ while True:
 
 #Dibujos
     x_relativa = x % Fondo.rect.width
-    win.blit(Fondo.image, (x_relativa - Fondo.rect.width, 0))
+    win.blit(Fondo.image, (x_relativa - Fondo.rect.width, 1))
     if x_relativa < W:
-        win.blit(Fondo.image,(x_relativa, 0))
+        win.blit(Fondo.image,(x_relativa, 1))
         pygame.draw.rect(win, Rojo, (pos_x, pos_y, 40, 40))
 
 
 #Constantes
-    x -= 10
+    x -= 15
     Reloj.tick(FPS)
 
     pygame.display.update()

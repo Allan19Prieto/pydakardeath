@@ -3,7 +3,7 @@ import pygame
 from pygame.image import load
 import os
 from pygame.locals import *
-
+#xd
 #Fuentes
 #Crea una ruta a una imagen, que esté en assets/sprites
 def load_sprite(name, with_alpha=True):

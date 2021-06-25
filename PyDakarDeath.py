@@ -104,6 +104,7 @@ class pydakardeath:
         self.btn_salir = Image("botones", "Salir.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_terminar = Image("botones", "Terminar.png", (180, 115), self.pantalla, self.window_rect)
         self.btn_menu_indicaciones = Image("img", "CuadroIndi.png", (580, 515), self.pantalla, self.window_rect)
+        self.btn_puntos = Image("img", "CuadroPuntaje.png", (580, 515), self.pantalla, self.window_rect)
 
 
         self.btn_iformacion = Image("img", "Informacion.png", (180, 115), self.pantalla, self.window_rect)
@@ -452,6 +453,7 @@ class pydakardeath:
             self.f_inicio.place()
             self.btn_puntaje.place(True, (0, -290))
             self.btn_atras.place(True, (-590, -320))
+            self.btn_puntos.place(True, (25, 20))
 
         #Ventana para seleccionar las caracteristicas de la lista
         elif self.menu == "seleccionar":

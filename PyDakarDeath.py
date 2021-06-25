@@ -33,7 +33,7 @@ darkorange = (255, 140, 0)
 darkred = (139, 0, 0)
 crimson = (220, 20, 60)
 #endregion
-#xd
+
 font = pygame.font.SysFont("comicsansms", 30)
 nameActive = False
 regionsActive = False
